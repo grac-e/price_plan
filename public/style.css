@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e7c6ff;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    /* background-color: #5a189a; */
+    background-color: #C77DFF;
+    color: #5a189a;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0.6, 0.6);
+}
+
+.section {
+    background-color: #C77DFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0.6, 0.6);
+}
+
+.section h3 {
+    color: #5a189a;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #5a189a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0.6, 0.6);
+}
+
+button:hover {
+    background-color: #240046;
+}
+
+.price-plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.price-plan-table th, .price-plan-table td {
+    border: 1px solid #e5b3fe;
+    padding: 8px;
+    text-align: left;
+}
+
+.price-plan-table th {
+    background-color: #5a189a;
+    color: white;
+}
+
+.price-plan-table td {
+    background-color: #e7c6ff;
+}

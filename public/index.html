@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Plan</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="bill.js"></script> 
+</head>
+
+<body x-data="pricePlan">
+
+        <div class="header">
+            <h1>Phone Bill Calculator</h1>
+        </div>
+    
+        <div class="section">
+            <h3>Calculate phone bill</h3>
+            <select x-model="selectedPricePlan">
+                <option value="" disabled selected>Pick a price plan</option>
+                <template x-for="plan in pricePlans" :key="plan.id">
+                    <option :value="plan.plan_name" x-text="plan.plan_name"></option>
+                </template>
+            </select>
+            Actions: <input type="text" x-model="actions" placeholder="E.g.: call, sms">
+            <button @click="calculatePhoneBill()">Calculate</button>
+            <p>Total Bill: <span x-text="billTotal"></span></p>
+        </div>
+    
+        <div class="section">
+            <h3>Check all available price plans</h3>
+            <button @click="togglePricePlans()">View/Close</button>
+            <table x-show="showPricePlans" class="price-plan-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Plan Name</th>
+                        <th>Call Cost (R)</th>
+                        <th>SMS Cost (R)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="plan in pricePlans" :key="plan.id">
+                        <tr>
+                            <td x-text="plan.id"></td>
+                            <td x-text="plan.plan_name"></td>
+                            <td x-text="plan.call_price"></td>
+                            <td x-text="plan.sms_price"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="section">
+            <h3>Create a new price plan</h3>
+            Name: <input type="text" x-model="newPlan.name">
+            Call cost: <input type="number" x-model="newPlan.call_cost">
+            SMS cost: <input type="number" x-model="newPlan.sms_cost">
+            <button @click="createPricePlan()">Create</button>
+        </div>
+    
+        <div class="section">
+            <h3>Update an existing price plan</h3>
+            Name: <input type="text" x-model="updatePlan.name">
+            New call cost: <input type="number" x-model="updatePlan.call_cost">
+            New SMS cost: <input type="number" x-model="updatePlan.sms_cost">
+            <button @click="updatePricePlan()">Update</button>
+        </div>
+    
+        <div class="section">
+            <h3>Delete an existing price plan</h3>
+            ID: <input type="number" x-model="deletePlanId">
+            <button @click="deletePricePlan()">Delete</button>
+        </div>
+</body>
+
+</html>
