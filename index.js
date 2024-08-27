@@ -20,7 +20,7 @@ await db.migrate();
 // Calculate the phone bill total using the specified price plan data.
 app.post('/api/phonebill', async (req, res) => {
     const { price_plan, actions } = req.body;
-    let plan = await totalPhoneBill(price_plan, actions);
+    let plan = await totalPhoneBill(db,price_plan, actions);
     console.log(plan);
     res.json({
         success: true,
